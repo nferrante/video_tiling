@@ -74,9 +74,7 @@ while True:
         # Write our video frame
         vid_out.write(frame)
         print("Handling frame %d/%d" % (cntr, frame_count))
-        cv2.imshow('Feed - Press "q" to exit',frame)
 
-        key = cv2.waitKey(10) & 0xFF
     else:
         # We have all the frames we need
         print("Done!")
