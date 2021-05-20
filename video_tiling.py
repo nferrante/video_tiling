@@ -28,7 +28,8 @@ fps =  tmp_vcap.get(cv2.CAP_PROP_FPS)  # Get our frames per second
 frame_count = int(tmp_vcap.get(cv2.CAP_PROP_FRAME_COUNT))  # Get the total frame count
 
 # Build our video writer and have it point to the user provided video output path
-vid_out = cv2.VideoWriter(video_path_out, cv2.VideoWriter_fourcc(*'MP4V'), fps, (video_height, video_width))
+fourcc = cv2.VideoWriter_fourcc(*'mp4v')  # This handles the color channels
+vid_out = cv2.VideoWriter(video_path_out, fourcc, fps, (video_width, video_height))
 
 # Read until video is completed
 cntr = 0
@@ -73,6 +74,9 @@ while True:
         # Write our video frame
         vid_out.write(frame)
         print("Handling frame %d/%d" % (cntr, frame_count))
+        cv2.imshow('Feed - Press "q" to exit',frame)
+
+        key = cv2.waitKey(10) & 0xFF
     else:
         # We have all the frames we need
         print("Done!")
