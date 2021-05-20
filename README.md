@@ -1,2 +1,3 @@
-# video_tiling
-This repository contains python code to tile input videos
+# Video Tiling
+This repository contains python code which tiles input videos.
+
